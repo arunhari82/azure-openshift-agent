@@ -1,0 +1,13 @@
+oc new-project azure-build
+
+oc create sa azure-build-sa
+
+oc adm policy add-scc-to-user anyuid -z azure-build-sa
+
+oc create secret generic azdevops \
+  --from-literal=AZP_URL=https://dev.azure.com/<<YOUR ORG>> \
+  --from-literal=AZP_TOKEN=<<YOUR PERSONAL ACCESS TOKEN>> \
+  --from-literal=AZP_POOL="openshift Agent Pool"
+
+
+oc create -f resources/deployment.yaml 
