@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: openshift-azure-build-agent
-          image: 'quay.io/anattama/openshift-azure-build-agent:latest'
+          image: 'quay.io/redhat_na_ssa/openshift-azure-build-agent:latest'
           env:
             - name: AZP_TOKEN
               valueFrom:
